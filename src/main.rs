@@ -26,16 +26,12 @@ fn day2() {
         z: u32,
     }
 
-    // Implement `Display` for `Box`.
     impl fmt::Display for Box {
         fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-            // Use `self.number` to refer to each positional data point.
             write!(f, "(x:{}, y:{}, z:{})", self.x, self.y, self.z)
         }
     }
 
-    // Parses a color hex code of the form '#rRgGbB..' into an
-    // instance of 'RGB'
     fn from_str(box_string: &str) -> Option<Box> {
         // println!("from_str");
         let re = Regex::new(r#"^([0-9]*)x([0-9]*)x([0-9]*)"#).unwrap();
